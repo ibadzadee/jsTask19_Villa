@@ -469,6 +469,7 @@ footer {
 }
 
 // <!--------------------Add----------------------->
+
 .form {
     padding: 200px 0px;
     @include display;
@@ -481,7 +482,7 @@ footer {
         background-color: antiquewhite;
         padding: 100px 50px;
         box-shadow: 0 0 10px blue;
-
+ 
         label {
             margin-top: 20px;
             font-size: 18px;
@@ -492,6 +493,7 @@ footer {
             padding: 5px 10px;
             font-size: 18px;
         }
+
 
         #submit {
             margin-top: 20px;

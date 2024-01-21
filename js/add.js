@@ -9,17 +9,26 @@ const nameInp = document.querySelector("#name");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  let src = imageInp.files[0];
-  const reader = new FileReader();
-  reader.readAsDataURL(src);
-  reader.onload = (e) => {
-    let obj = {
-      image: e.target.result,
-      date: dateInp.value,
-      name: nameInp.value,
+  inputs = [dateInp, nameInp , imageInp];
+
+  if (dateInp.value.trim() && nameInp.value.trim()) {
+    let src = imageInp.files[0];
+    let reader = new FileReader();
+    reader.readAsDataURL(src);
+    reader.onload = (e) => {
+      let obj = {
+        image: e.target.result,
+        date: dateInp.value,
+        name: nameInp.value,
+      };
+      axios.post(url, obj).then((res) => {
+        window.location = `./index.html`;
+      });
     };
-    axios.post(url, obj).then((res) => {
-      window.location.reload();
+  } else {
+    inputs.forEach((element) => {
+      let display = element.value.trim() == "" ? "block" : "none";
+      element.nextElementSibling.style.display = display;
     });
-  };
+  }
 });

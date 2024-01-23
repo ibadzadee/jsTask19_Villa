@@ -10,6 +10,7 @@ const nameInp = document.querySelector("#name");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   inputs = [dateInp, nameInp , imageInp];
+  console.log(inputs.value);
 
   if (dateInp.value.trim() && nameInp.value.trim()) {
     let src = imageInp.files[0];
@@ -32,3 +33,5 @@ form.addEventListener("submit", (event) => {
     });
   }
 });
+
+
